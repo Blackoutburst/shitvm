@@ -1,0 +1,14 @@
+export const CONSTANT_Utf8 = 0x01
+export const CONSTANT_Integer = 0x03
+export const CONSTANT_Float = 0x04
+export const CONSTANT_Long = 0x05
+export const CONSTANT_Double = 0x06
+export const CONSTANT_Class = 0x07
+export const CONSTANT_String = 0x08
+export const CONSTANT_Fieldref = 0x09
+export const CONSTANT_Methodref = 0x0A
+export const CONSTANT_InterfaceMethodref = 0x0B
+export const CONSTANT_NameAndType = 0x0C
+export const CONSTANT_MethodHandle = 0x0F
+export const CONSTANT_MethodType = 0x10
+export const CONSTANT_InvokeDynamic = 0x12
