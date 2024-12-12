@@ -1,8 +1,12 @@
-import { printBuffer } from "./utils"
+import { printBuffer, printCode } from "./utils"
 import { decode } from "./classLoader"
+import { createFrame, execute } from "./core"
 
 const fileInput = document.getElementById('fileInput')
 const fileOutput = document.getElementById('fileOutput')
+const code = document.getElementById('code')
+const input = document.getElementById('input')
+const output = document.getElementById('output')
 
 fileInput.addEventListener('change', () => {
     const selectedFile = fileInput.files[0]
@@ -16,11 +20,18 @@ fileInput.addEventListener('change', () => {
             fileOutput.textContent = 'Invalid data'
         }
         const data = new DataView(fileContents)
-        const stringified = printBuffer(data.buffer)
-        const vClass = decode(data)
-        console.log(vClass)
+        const stringifiedBuffer = printBuffer(data.buffer)
+        const jClass = decode(data)
+        console.log(jClass)
+        const frame = createFrame(jClass, "add", 4, 5)
+        console.log(frame)
+        const frameOutput = execute(frame)
+        const stringifiedCode = printCode(frame.code)
 
-        fileOutput.textContent = stringified
+        fileOutput.textContent = "Class data:\n"+stringifiedBuffer
+        code.textContent = "Code:\n"+stringifiedCode
+        input.textContent = "Input:\nadd, 4, 5"
+        output.textContent = "Output:\n"+frameOutput
     }
 
     reader.readAsArrayBuffer(selectedFile)
