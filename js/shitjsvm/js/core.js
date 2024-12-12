@@ -5,10 +5,17 @@ export function createFrame(jClass, method, ...args) {
     for (const m of jClass.methods) {
         if (m.name !== method) continue
         for (const a of m.attributes) {
-            if (a.name === "Code") {
+            if (a.name === "Code" && a.data.length > 8) {
+                const view = new DataView(a.data.buffer)
+                const maxStack = view.getInt16(0, false)
+                const maxLocal = view.getInt16(2, false)
+                const codeLength = view.getInt32(4, false)
                 const frame = new Frame(
+                    maxStack,
+                    maxLocal,
+                    codeLength,
                     jClass,
-                    a.data
+                    a.data.slice(8, 8 + codeLength)
                 )
                 frame.locals = args
                 return frame
