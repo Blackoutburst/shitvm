@@ -37,7 +37,7 @@ fileInput.addEventListener('change', () => {
             button.textContent = m.name
             button.addEventListener('click', () => {
                 method = m.name
-                const descriptorReg = /\(([^)]+)\)/g
+                const descriptorReg = /\((.*?)\)/g
                 const classReg = /L(.*?);/g
                 const argsCount = descriptorReg
                     .exec(m.descriptor)?.[0]
