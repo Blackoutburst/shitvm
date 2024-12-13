@@ -1,5 +1,5 @@
 import { Frame } from "./class/Frame"
-import { iload_0, iload_1, iload_2, iload_3, iadd, ireturn } from "./const/instructionName"
+import { iload_0, iload_1, iload_2, iload_3, iadd, ireturn, isub } from "./const/instructionName"
 
 export function createFrame(jClass, method, ...args) {
     for (const m of jClass.methods) {
@@ -41,11 +41,18 @@ export function execute(frame) {
             case iload_3:
                 frame.stack.push(frame.locals[3])
                 break
-            case iadd:
+            case iadd: {
                 const a = frame.stack.pop()
                 const b = frame.stack.pop()
-                frame.stack.push(a + b)
+                frame.stack.push(b + a)
                 break
+            }
+            case isub: {
+                const a = frame.stack.pop()
+                const b = frame.stack.pop()
+                frame.stack.push(b - a)
+                break
+            }
             case ireturn:
                 return frame.stack.pop()
         }

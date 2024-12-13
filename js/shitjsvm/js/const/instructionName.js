@@ -15,6 +15,7 @@ export const iconst_5 = 0x08
 export const lconst_0 = 0x09
 export const lconst_1 = 0x0A
 export const aconst_null = 0x01
+export const isub = 0x64
 
 
 export const mappings = new Map()
@@ -35,3 +36,4 @@ mappings.set(0x08, "iconst_5")
 mappings.set(0x09, "lconst_0")
 mappings.set(0x0A, "lconst_1")
 mappings.set(0x01, "aconst_null")
+mappings.set(0x64, "isub")

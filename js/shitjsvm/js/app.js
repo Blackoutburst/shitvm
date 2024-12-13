@@ -23,14 +23,14 @@ fileInput.addEventListener('change', () => {
         const stringifiedBuffer = printBuffer(data.buffer)
         const jClass = decode(data)
         console.log(jClass)
-        const frame = createFrame(jClass, "add", 4, 5)
+        const frame = createFrame(jClass, "sub", "7", 3)
         console.log(frame)
         const frameOutput = execute(frame)
         const stringifiedCode = printCode(frame.code)
 
         fileOutput.textContent = "Class data:\n"+stringifiedBuffer
         code.textContent = "Code:\n"+stringifiedCode
-        input.textContent = "Input:\nadd, 4, 5"
+        input.textContent = "Input:\nsub, \"7\", 3"
         output.textContent = "Output:\n"+frameOutput
     }
 
