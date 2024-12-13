@@ -16,6 +16,12 @@ export const lconst_0 = 0x09
 export const lconst_1 = 0x0A
 export const aconst_null = 0x01
 export const isub = 0x64
+export const aload_0 = 0x2A
+export const aload_1 = 0x2B
+export const aload_2 = 0x2C
+export const aload_3 = 0x2D
+export const invokespecial = 0xB7
+export const _return = 0xB1
 
 
 export const mappings = new Map()
@@ -37,3 +43,10 @@ mappings.set(0x09, "lconst_0")
 mappings.set(0x0A, "lconst_1")
 mappings.set(0x01, "aconst_null")
 mappings.set(0x64, "isub")
+mappings.set(0x2A, "aload_0")
+mappings.set(0x2B, "aload_1")
+mappings.set(0x2C, "aload_2")
+mappings.set(0x2D, "aload_3")
+mappings.set(0xB7, "invokespecial")
+mappings.set(0xB1, "return")
+

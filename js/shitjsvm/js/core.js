@@ -1,5 +1,5 @@
 import { Frame } from "./class/Frame"
-import { iload_0, iload_1, iload_2, iload_3, iadd, ireturn, isub } from "./const/instructionName"
+import { iload_0, iload_1, iload_2, iload_3, iadd, ireturn, isub, _return } from "./const/instructionName"
 
 export function createFrame(jClass, method, ...args) {
     for (const m of jClass.methods) {
@@ -55,6 +55,8 @@ export function execute(frame) {
             }
             case ireturn:
                 return frame.stack.pop()
+            case _return:
+                return
         }
         frame.ip++
     }
