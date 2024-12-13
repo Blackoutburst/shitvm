@@ -62,7 +62,7 @@ fileInput.addEventListener('change', () => {
                     const inputs = inputContainer.querySelectorAll('input')
                     const values = Array.from(inputs).map(input => Number(input.value))
                     const frame = createFrame(jClass, method, ...values)
-                    outputText.textContent = execute(frame)
+                    outputText.textContent = "Output:\n" + execute(frame)
                 })
 
                 computeButton.appendChild(compute)
